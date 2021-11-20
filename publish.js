@@ -14,6 +14,7 @@ const serviceBroker = new ServiceBroker({
     middlewares: [
 		ChannelsMiddleware({
             adapter: `redis://default:sOmE_sEcUrE_pAsS@localhost:6379/0`,
+			prefix: "orders", // for set prefix
 		})
 	]
 

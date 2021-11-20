@@ -13,16 +13,18 @@ const serviceBroker = new ServiceBroker({
     middlewares: [
 		ChannelsMiddleware({
             adapter: `redis://default:sOmE_sEcUrE_pAsS@localhost:6379/0`,
+			prefix: "orders",
+			
 		})
 	]
     
 });
 
 serviceBroker.createService({
-    name: "payments",
+    name: "order",
 
     channels: {
-        "payment.processed": {
+        "order.purchase": {
             async handler(payload) {
                 console.log(`Paylod is ${JSON.stringify(payload)}`);
 
